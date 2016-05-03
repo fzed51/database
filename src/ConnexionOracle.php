@@ -38,6 +38,8 @@ class ConnexionSqlite implements ConnexionInterface
     private $password;
     private $schema;
 
+    use ExtensionDetector;
+
     /**
      * @param string $schema
      * @param string $password
@@ -45,6 +47,10 @@ class ConnexionSqlite implements ConnexionInterface
      */
     public function __construct($schema, $password, $tnsName = null)
     {
+        if (!$this->extensionIsFind('pdo_oci')) {
+            throw new Exception\DriverNotFound("L'extension PDO_OCI n'est pas chargée");
+        }
+
         $this
                 ->setSchema($schema)
                 ->setPassword($password)
