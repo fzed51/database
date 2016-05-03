@@ -1,0 +1,19 @@
+{
+    "name": "fzed51/database",
+    "description": "Classes de connexion et d'acces à une base de données",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "fzed51",
+            "email": "fzed51+git@github.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "fzed51\\Database\\": "./src"
+        }
+    },
+    "require": {
+        "php": ">=5.5.0"
+    }
+}
