@@ -38,11 +38,17 @@ class ConnexionSqlite implements ConnexionInterface
 
     private $fileFullName;
 
+    use ExtensionDetector;
+
     /**
      * @param string $fileFullName
      */
     public function __construct($fileFullName)
     {
+        if (!$this->extensionIsFind('pdo_sqlite')) {
+            throw new Exception\DriverNotFound("L'extension PDO_sqlite n'est pas chargée");
+        }
+
         $this->setFile($fileFullName);
     }
 
