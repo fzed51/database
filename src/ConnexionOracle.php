@@ -31,7 +31,7 @@ namespace fzed51\Database;
  *
  * @author fabien.sanchez
  */
-class ConnexionSqlite implements ConnexionInterface
+class ConnexionOracle implements ConnexionInterface
 {
 
     private $tnsName;
